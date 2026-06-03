@@ -9,10 +9,12 @@ import io.github.randomusert.mods.create_inventions_framework.init.CIFBlockEntit
 import io.github.randomusert.mods.create_inventions_framework.init.CIFBlocks;
 import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -101,4 +103,10 @@ public class Create_inventions_framework {
     public static CreateRegistrate registrate() {
         return REGISTRATE;
     }
+
+    // Replace the old createKey method in your main class with this one:
+    public static <T> ResourceKey<T> createKey(ResourceKey<Registry<T>> registryKey, String name) {
+        return ResourceKey.create(registryKey, ResourceLocation.fromNamespaceAndPath(MODID, name));
+    }
+
 }
