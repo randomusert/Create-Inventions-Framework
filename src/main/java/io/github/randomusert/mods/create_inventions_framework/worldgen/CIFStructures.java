@@ -41,6 +41,17 @@ public class CIFStructures {
                 Heightmap.Types.WORLD_SURFACE_WG
         );
 
+        JigsawStructure ruined_workshop = new JigsawStructure(
+                settings,
+                pools.getOrThrow(Create_inventions_framework.createKey(Registries.TEMPLATE_POOL, "ruined_workshop_pool")),
+                3,
+                ConstantHeight.of(VerticalAnchor.absolute(0)),
+                true,
+                Heightmap.Types.WORLD_SURFACE_WG
+        );
+
+        context.register(Create_inventions_framework.createKey(Registries.STRUCTURE, "ruined_workshop_structure"), ruined_workshop);
+
         context.register(Create_inventions_framework.createKey(Registries.STRUCTURE, "ore_geode_structure"), structure);
     }
 }

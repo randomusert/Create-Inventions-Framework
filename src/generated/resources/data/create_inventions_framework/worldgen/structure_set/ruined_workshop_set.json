@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 143576239,
+    "separation": 8,
+    "spacing": 32
+  },
+  "structures": [
+    {
+      "structure": "create_inventions_framework:ruined_workshop_structure",
+      "weight": 1
+    }
+  ]
+}

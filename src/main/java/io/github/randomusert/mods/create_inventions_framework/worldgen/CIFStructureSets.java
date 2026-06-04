@@ -40,5 +40,15 @@ public class CIFStructureSets {
         );
 
         context.register(Create_inventions_framework.createKey(Registries.STRUCTURE_SET, "ore_geode_set"), structureSet);
+
+        StructureSet ruinedWorkshopStructure = new StructureSet(
+                List.of(new StructureSet.StructureSelectionEntry(
+                        structures.getOrThrow(Create_inventions_framework.createKey(Registries.STRUCTURE, "ruined_workshop_structure")),
+                        1 // Weight
+                )),
+                placement
+        );
+
+        context.register(Create_inventions_framework.createKey(Registries.STRUCTURE_SET, "ruined_workshop_set"), ruinedWorkshopStructure);
     }
 }

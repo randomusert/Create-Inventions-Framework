@@ -15,6 +15,8 @@ public class CIFTemplatePools {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
 
+        var poolGetter = context.lookup(Registries.TEMPLATE_POOL);
+
         ResourceLocation nbtLocation = ResourceLocation.fromNamespaceAndPath(Create_inventions_framework.MODID, "ore_geode");
 
 
@@ -31,5 +33,26 @@ public class CIFTemplatePools {
 
         // Registered with your updated createKey helper
         context.register(Create_inventions_framework.createKey(Registries.TEMPLATE_POOL, "ore_geode_pool"), pool);
+
+        ResourceLocation ruinedWorkshopPath = ResourceLocation.fromNamespaceAndPath(Create_inventions_framework.MODID, "ruined_workshop_path");
+        ResourceLocation ruinedWorkshopBuilding = ResourceLocation.fromNamespaceAndPath(Create_inventions_framework.MODID, "ruined_workshop_building");
+
+
+        StructureTemplatePool ruinedWorkshopPathPool = new StructureTemplatePool(
+                poolGetter.getOrThrow(Pools.EMPTY),
+                List.of(Pair.of(StructurePoolElement.single(ruinedWorkshopPath.toString()), 1)),
+                StructureTemplatePool.Projection.RIGID
+        );
+
+        context.register(Create_inventions_framework.createKey(Registries.TEMPLATE_POOL, "ruined_workshop_pool"), ruinedWorkshopPathPool);
+
+
+        StructureTemplatePool ruinedWorkshopBuildingPool = new StructureTemplatePool(
+                poolGetter.getOrThrow(Pools.EMPTY),
+                List.of(Pair.of(StructurePoolElement.single(ruinedWorkshopBuilding.toString()), 1)),
+                StructureTemplatePool.Projection.RIGID
+        );
+
+        context.register(Create_inventions_framework.createKey(Registries.TEMPLATE_POOL, "ruined_workshop_building_pool"), ruinedWorkshopBuildingPool);
     }
 }
